@@ -6,13 +6,14 @@
   "repository": "git@github.com:TeamOrangeServer/OrangeLauncher-experimental.git",
   "author": "sousuke0422 <sousuke20xx@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "minecraft-launcher-core": "^3.13.3"
-  },
+  "scripts": {},
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "dependencies": {
+    "minecraft-launcher-core": "^3.13.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
