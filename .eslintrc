@@ -1,18 +1,22 @@
 {
     "plugins": [
-        "node"
+        //"node"
     ],
     "extends": [
         "eslint:recommended",
-        "plugin:node/recommended",
+        //"plugin:node/recommended",
         "plugin:prettier/recommended"
     ],
     "rules": {
-        "node/no-unsupported-features": ["error", {"version": 8}]
+        // "node/no-unsupported-features": ["error", {"version": 12}]
     },
     "env": {
         "node": true,
-        "browser": true
+        "browser": true,
+        "es6": true
     },
-    "root": true
+    "root": true,
+    "parserOptions": {
+        "sourceType": "module"
+    }
 }
