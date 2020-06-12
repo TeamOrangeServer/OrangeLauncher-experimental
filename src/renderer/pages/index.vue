@@ -1,6 +1,23 @@
 <template>
   <div>
-    <h1>Welcom to OrangeLauncher Experimental</h1>
+    <template>
+      <v-parallax
+        dark
+        src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+        lazy-src="https://picsum.photos/id/11/100/60"
+      >
+        <v-row align="center" justify="center">
+          <v-col class="text-center" cols="12">
+            <h1 class="display-2 font-weight-thin mb-4 font1">
+              Welcom to OrangeLauncher
+            </h1>
+            <h4 class="subheading font-weight-thin font3">
+              Version:{{ require('./../../../package.json').version }} Experimental
+            </h4>
+          </v-col>
+        </v-row>
+      </v-parallax>
+    </template>
     <launch />
   </div>
 </template>
