@@ -19,7 +19,7 @@
 }
 
 .sp_s_bottom {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .setting_title {
@@ -40,4 +40,8 @@
   border-right: solid 3px #64b5f6;
   padding: 0.5em 0.5em 0.5em 0.5em;
   font-size: 1em;
+}
+
+.card_bottom {
+  padding-bottom: 10px;
 }
