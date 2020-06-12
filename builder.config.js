@@ -15,7 +15,7 @@ const windowsOS = {
 const linuxOS = {
   linux: {
     icon: ICONS_DIR,
-    target: 'deb'
+    target: ['deb', 'pacman']
   }
 }
 
@@ -43,9 +43,13 @@ const macOS = {
 
 module.exports = {
   asar: false,
-  productName: 'My browser',
-  appId: 'org.michalzarach.my-browser',
-  artifactName: 'my-browser-${version}.${ext}',
+  productName: 'OrangeLauncher 6',
+  appId: 'xyz.akirin.orela6',
+  artifactName: 'orangelauncher6-${version}.${ext}',
+  protocols: {
+    name: 'launcher',
+    schemes: ['lcpack']
+  },
   directories: {
     output: 'build'
   },
