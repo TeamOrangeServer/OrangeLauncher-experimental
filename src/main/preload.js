@@ -1,5 +1,5 @@
 //const { electron, remote } = require('electron')
-const { electron } = require('electron')
+import { electron } from 'electron'
 
 process.once('loaded', () => {
   global.process = process

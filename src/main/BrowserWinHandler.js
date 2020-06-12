@@ -1,13 +1,13 @@
 import { EventEmitter } from 'events'
-import { BrowserWindow, app, webContents } from 'electron'
+import { BrowserWindow, app } from 'electron'
 const isProduction = process.env.NODE_ENV === 'production'
 
 export default class BrowserWinHandler {
   /**
-     * @param [options] {object} - browser window options
-     * @param [allowRecreate] {boolean}
-     */
-  constructor (options, allowRecreate = true) {
+   * @param [options] {object} - browser window options
+   * @param [allowRecreate] {boolean}
+   */
+  constructor(options, allowRecreate = true) {
     this._eventEmitter = new EventEmitter()
     this.allowRecreate = allowRecreate
     this.options = options
@@ -15,7 +15,7 @@ export default class BrowserWinHandler {
     this._createInstance()
   }
 
-  _createInstance () {
+  _createInstance() {
     // This method will be called when Electron has finished
     // initialization and is ready to create browser windows.
     // Some APIs can only be used after this event occurs.
@@ -29,56 +29,48 @@ export default class BrowserWinHandler {
     app.on('activate', () => this._recreate())
   }
 
-  _create () {
-    this.browserWindow = new BrowserWindow(
-      {
-        ...this.options,
-        webPreferences: {
-          ...this.options.webPreferences,
-          webSecurity: isProduction, // disable on dev to allow loading local resources
-          nodeIntegration: true, // allow loading modules via the require () function
-          devTools: !process.env.SPECTRON // disable on e2e test environment
-        }
+  _create() {
+    this.browserWindow = new BrowserWindow({
+      ...this.options,
+      webPreferences: {
+        ...this.options.webPreferences,
+        webSecurity: isProduction, // disable on dev to allow loading local resources
+        nodeIntegration: true, // allow loading modules via the require () function
+        devTools: !process.env.SPECTRON // disable on e2e test environment
       }
-    )
+    })
     this.browserWindow.on('closed', () => {
       // Dereference the window object
       this.browserWindow = null
     })
     this._eventEmitter.emit('created')
-    this.browserWindow.webContents.on('devtools-opened', () => {
-      console.log(
-        '%cThe console is dark and full of terrors.',
-        'color: white; -webkit-text-stroke: 4px #a02d2a; font-size: 60px; font-weight: bold'
-      )
-    })
   }
 
-  _recreate () {
+  _recreate() {
     if (this.browserWindow === null) this._create()
   }
 
   /**
-     * @callback onReadyCallback
-     * @param {BrowserWindow}
-     */
+   * @callback onReadyCallback
+   * @param {BrowserWindow}
+   */
 
   /**
-     *
-     * @param callback {onReadyCallback}
-     */
-  onCreated (callback) {
+   *
+   * @param callback {onReadyCallback}
+   */
+  onCreated(callback) {
     this._eventEmitter.once('created', () => {
       callback(this.browserWindow)
     })
   }
 
   /**
-     *
-     * @returns {Promise<BrowserWindow>}
-     */
-  created () {
-    return new Promise(resolve => {
+   *
+   * @returns {Promise<BrowserWindow>}
+   */
+  created() {
+    return new Promise((resolve) => {
       this._eventEmitter.once('created', () => {
         resolve(this.browserWindow)
       })

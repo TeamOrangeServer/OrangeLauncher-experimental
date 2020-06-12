@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 import launch from '~/components/Launch'
 
 export default {

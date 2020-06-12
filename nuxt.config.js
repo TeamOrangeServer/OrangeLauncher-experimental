@@ -1,5 +1,8 @@
 module.exports = {
   mode: 'spa',
+  head: {
+    title: 'OrangeLauncher Experimental ' + require('./package.json').version
+  },
   //srcDir: './src/renderer',
   dev: process.env.NODE_ENV === 'development',
   modules: ['@nuxtjs/vuetify'],

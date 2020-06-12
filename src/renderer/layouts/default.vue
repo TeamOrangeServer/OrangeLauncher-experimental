@@ -1,20 +1,8 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
+        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -75,10 +63,13 @@ export default {
   created() {
     if (this.$ssrContext) return
 
-    this.$vuetify.theme.dark =
-      localStorage.getItem('set__system__theme') === 'true'
+    this.$vuetify.theme.dark = localStorage.getItem('set__system__theme') === 'true'
   }
 }
+
+import { webContents } from 'electron'
+
+console.log(webContents)
 </script>
 
 <style>

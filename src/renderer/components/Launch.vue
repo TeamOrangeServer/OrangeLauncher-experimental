@@ -2,7 +2,9 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" max-width="600px">
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" dark v-on="on">起動</v-btn>
+        <v-btn color="primary" dark v-on="on">
+          起動
+        </v-btn>
       </template>
       <v-card>
         <v-card-title>
@@ -13,25 +15,19 @@
             <v-container>
               <v-row>
                 <v-col cols="12">
-                  <v-text-field
-                    :rules="emailRules"
-                    v-model="email"
-                    label="Email/UserName"
-                    required
-                    clearable
-                  ></v-text-field>
+                  <v-text-field v-model="email" :rules="emailRules" label="Email/UserName" required clearable />
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
-                    :rules="passRules"
                     v-model="password"
+                    :rules="passRules"
                     label="Password"
-                    v-bind:type="showPassword ? 'text' : 'password'"
-                    v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="showPassword = !showPassword"
+                    :type="showPassword ? 'text' : 'password'"
+                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                     required
                     clearable
-                  ></v-text-field>
+                    @click:append="showPassword = !showPassword"
+                  />
                 </v-col>
               </v-row>
             </v-container>
@@ -39,10 +35,14 @@
           <small>マインクラフのアカウントを入力してください。(未実装)</small>
         </v-card-text>
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="dialog = false">キャンセル</v-btn>
+          <v-spacer />
+          <v-btn color="blue darken-1" text @click="dialog = false">
+            キャンセル
+          </v-btn>
           <div class="login-btn">
-            <v-btn :loading="loading" color="blue darken-1" text @click="login">起動</v-btn>
+            <v-btn :loading="loading" color="blue darken-1" text @click="login">
+              起動
+            </v-btn>
           </div>
         </v-card-actions>
       </v-card>
