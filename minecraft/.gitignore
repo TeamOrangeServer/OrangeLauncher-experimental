@@ -1,0 +1,14 @@
+assets/
+config/
+libraries/
+logs/
+mods/
+natives/
+resourcepacks/
+saves/
+versions/
+*json
+
+!forge/*-universal.jar
+
+!.gitignore
